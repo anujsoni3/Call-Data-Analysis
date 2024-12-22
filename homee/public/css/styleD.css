@@ -1,0 +1,495 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+  --base-clr: #d5d5d8;
+  --line-clr: #42434a;
+  --hover-clr: #222533;
+  --text-clr: #000000;
+  --accent-clr: #5e63ff;
+  --secondary-text-clr: #b0b3c1;
+  --card-bg: #fff;
+  --shadow-clr: rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5rem;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  background-color: var(--base-clr);
+  color: var(--text-clr);
+}
+
+#sidebar {
+  width: 250px;
+  background-color: var(--base-clr);
+  padding: 10px;
+  border-right: 1px solid var(--line-clr);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: width 0.3s ease;
+}
+
+#sidebar.close {
+  width: 30px;
+}
+
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+#sidebar > ul > li:first-child {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+#sidebar ul li.active a {
+  color: var(--accent-clr);
+}
+
+#sidebar a,
+#sidebar .dropdown-btn,
+#sidebar .logo {
+  padding: 1.5em;
+  display: flex;
+  align-items: center;
+  text-decoration: solid;
+  color: var(--text-clr);
+  gap: 1em;
+  border-radius: 0.5em;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#sidebar a:hover,
+#sidebar .dropdown-btn:hover,
+#toggle-btn:hover {
+  background-color: #8e9aaf;
+  background-color: #284b63;
+  color: #4a4e69;
+}
+
+#sidebar a:focus,
+#sidebar .dropdown-btn:focus {
+  outline: 2px solid var(--accent-clr);
+}
+
+#sidebar .sub-menu {
+  display: none;
+}
+
+#sidebar .sub-menu.show {
+  display: block;
+}
+
+#sidebar .sub-menu a {
+  padding-left: 2em;
+}
+
+#toggle-btn {
+  margin-left: auto;
+  padding: 1em;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+
+main {
+  padding: 30px;
+  background-color: var(--base-clr);
+  min-height: 100vh;
+}
+
+.container {
+  padding: 20px; /* Adds 20px padding to all sides of the container */
+  margin: 20px auto; /* Optional: Adds a margin to center the container and separate it from other elements */
+  max-width: 100%; /* Optional: Ensures the container doesn't go beyond the screen width */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for better aesthetics */
+  background-color: var(--card-bg);
+  border: 1px solid var(--line-clr);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px var(--shadow-clr);
+  transition: box-shadow 0.3s ease;
+
+.container:hover {
+  box-shadow: 0 8px 20px var(--shadow-clr);
+}
+
+.header h1 {
+  font-size: 2.2em;
+  margin-bottom: 20px;
+  color: #091057;
+}
+
+.header{
+  font-family: Arial, sans-serif;
+
+}
+
+.section {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px var(--shadow-clr);
+  padding: 20px;
+  text-align: center;
+  width: 30%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px var(--shadow-clr);
+}
+
+.card:focus {
+  outline: 2px solid var(--accent-clr);
+}
+
+.card-value{
+  font-size: 2em;
+  font-family: Arial, sans-serif;
+  margin-bottom: 5px;
+  
+    font-weight: bold;
+    /* unicode-bidi: isolate; */
+    color: #284b63;
+    opacity: 85%;
+}
+
+.card-label1{
+  color: red;
+}
+
+.card-label2{
+  color: green;
+}
+
+.card-label{
+  font-family: Arial, sans-serif;
+  opacity : 60%;
+  
+}
+
+.chart-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 20px auto;
+}
+
+.chart {
+  flex: 1;
+  max-width: 30%;
+  height: 300px;
+  padding: 20px;
+  border: 1px solid var(--line-clr);
+  border-radius: 5px;
+  background-color: var(--card-bg);
+}
+
+.chart canvas {
+  width: 100%;
+  height: 150%;
+  padding:5px;
+  margin-top: 12px;
+
+}
+
+.legend {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.legend li {
+  list-style: none;
+  margin-right: 10px;
+}
+
+.legend li span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #ccc;
+  border-top: 3px solid #333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media(max-width: 800px) {
+  body {
+    grid-template-columns: 1fr;
+  }
+  main {
+    padding: 20px 10px;
+  }
+  /* #sidebar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    border-top: 1px solid var(--line-clr);
+    border-right: none;
+    display: flex;
+    justify-content: space-between;
+    overflow-y: auto;          /* Enable vertical scrolling */
+    /* overflow-x: hidden; */
+  
+  #sidebar ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+  }
+  #sidebar a, .dropdown-btn {
+    justify-content: center;
+    width: 60px;
+    padding: 0;
+  } */
+
+  #sidebar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    border-top: 1px solid var(--line-clr);
+    border-right: none;
+    display: flex;
+    justify-content: space-between;
+    overflow-x: hidden;
+    overflow-y: auto; /* Vertical scroll when content exceeds height */
+  }
+}
+  #sidebar ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+    height: auto; /* Allow the content to grow beyond the height of the sidebar */
+  }
+  
+  #sidebar a, .dropdown-btn {
+    justify-content: center;
+    width: 60px;
+    padding: 0;
+  }
+  
+  .container {
+    padding: 20px;
+  }
+  .chart {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+  font-family: "Playfair Display", serif;
+}
+
+ul li {
+  margin-bottom: 16px; /* Adjust spacing between items */
+  font-family: "Playfair Display", serif;
+}
+
+.sub-menu {
+  display: none;
+  padding-left: 20px;
+  font-family: "Playfair Display", serif;
+}
+
+.sub-menu.no-border {
+  border: none;
+}
+
+.sub-menu.no-bullets {
+  list-style-type: none;
+}
+
+.sub-menu li {
+  margin-bottom: 8px; /* Spacing for submenu items */
+}
+
+.sub-menu.no-bullets li {
+  padding-left: 0;
+}
+
+.dropdown-btn.no-border {
+  border: none;
+}
+
+.dropdown-btn {
+  background-color: transparent;
+  color: #e8eaed;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  text-align: left;
+  padding: 12px 20px;
+  outline: none;
+  transition: background-color 0.3s ease;
+  font-family: "Playfair Display", serif;
+}
+
+.dropdown-btn:hover {
+  background-color: #3c4042;
+  font-family: "Playfair Display", serif;
+}
+
+.dropdown-btn svg {
+  vertical-align: middle;
+  margin-right: 10px;
+  font-family: "Playfair Display", serif;
+}
+
+/* Scrollbar styling (optional) */
+#sidebar::-webkit-scrollbar {
+  width: 8px; /* Scrollbar width */
+  font-family: "Playfair Display", serif;
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+  background-color: #555; /* Scrollbar color */
+  border-radius: 4px; /* Scrollbar corner rounding */
+  font-family: "Playfair Display", serif;
+}
+
+#sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: #888; /* Scrollbar color on hover */
+  font-family: "Playfair Display", serif;
+}
+/* Style for the Download & Export button */
+.btn.btn-primary {
+  font-family: "Playfair Display", serif;
+  padding: 12px 24px;  /* Increase padding for top-bottom and left-right */
+  font-size: 18px;     /* Adjust font size */
+  font-family: 'Arial', sans-serif;  /* Change font style */
+  font-weight: bold;   /* Make the text bold */
+  background-color: #5e63ff; /* Primary blue color */
+  border: none;        /* Remove border */
+  border-radius: 5px;  /* Add rounded corners */
+  color: white;        /* Text color */
+  cursor: pointer;     /* Show pointer on hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for default state */
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effect */
+}
+
+/* Hover effect for the button */
+.btn.btn-primary:hover {
+  font-family: "Playfair Display", serif;
+  background-color: #0056b3; /* Darker shade of blue on hover */
+  color: #e2e2e2;  /* Slightly lighter text color on hover */
+  transform: scale(1.07);    /* More pronounced zoom effect */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 123, 255, 0.5); /* Larger shadow with a blue glow */
+}
+
+/* Optional: Active state to give a pressed effect */
+.btn.btn-primary:active {
+  font-family: "Playfair Display", serif;
+  transform: scale(1);  /* Reset scale on click */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Reduce shadow to indicate click */
+}
+
+
+
+
+
+
+
+
+#sidebar {
+  width: 250px;
+  background-color: var(--base-clr); /* Keep the original sidebar background color */
+  padding: 1px;
+  border-right: 1px solid var(--line-clr);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  transition: width 0.3s ease;
+}
+
+#sidebar ul li.active a {
+  color: #0f0f0f; /* Set color for active link */
+}
+
+#sidebar a,
+#sidebar .dropdown-btn,
+#sidebar .logo {
+  padding: 1.5em;
+  display: flex;
+  align-items: center;
+  text-decoration: none; /* Ensure text decoration is none */
+  color: #0f0f0f; /* Change text color for all links to black */
+  gap: 1em;
+  border-radius: 0.5em;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Change the hover background color and text color */
+#sidebar a:hover,
+#sidebar .dropdown-btn:hover,
+#toggle-btn:hover {
+  background-color: #284b63; /* Keep the original hover background color */
+  color: #fff; /* Change text color on hover (to accent color) */
+}
+
+/* Change color specifically for the DASHBOARD header if applicable */
+#sidebar .dashboard {
+  color: #cbc0d3; /* Change color for DASHBOARD text */
+  font-weight: bold; /* Make the text bold */
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call Playback</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/stylesV.css">
+</head>
+
+<body class="container py-4">
+    <h1 class="text-center mb-4">Call Playback System</h1>
+
+    <div class="row justify-content-center mb-4">
+        <div class="col-md-6">
+            <div class="input-group">
+                <input type="text" id="searchInput" class="form-control" placeholder="Search by employee name">
+                <button id="searchButton" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="audioList" class="row mt-4 justify-content-center">
+        <% if (audioData.length > 0) { %>
+            <% audioData.forEach(audio => { %>
+                <div class="col-md-8 mb-3">
+                    <div class="card p-3 shadow-sm">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fw-bold"><%= audio.employee_name %></span>
+                            <audio controls>
+                                <source src="<%= audio.audio_file_path %>" type="audio/mpeg">
+                                Your browser does not support the audio tag.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p class="text-center">No audio files found.</p>
+        <% } %>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/scriptV.js"></script>
+</body>
+
+</html>
